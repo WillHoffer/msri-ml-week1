@@ -114,4 +114,10 @@ def make_persist_diagram(rel_file_path, radius=1, max_dim=2):
     persistence_points = complex.persistence()
     return gudhi.plot_persistence_diagram(persistence_points)
 
+def make_persist_points(rel_file_path, radius=1, max_dim=2):
+    points = load_pcd(os.getcwd()+rel_file_path, show=True)
+    complex = rips_gudhi(points, radius, max_dimension=max_dim, show=False)
+    persistence_points = complex.persistence()
+    return persistence_points
+
 
